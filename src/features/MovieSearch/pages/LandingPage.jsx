@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+
 import styled from 'styled-components';
 import MovieModal from "../components/MovieModal/MovieModal";
 import MovieSearch from '../components/MovieSearch/MovieSearch';
@@ -19,6 +20,7 @@ const Container = styled.div`
 `
 
 const LandingPage = () => {
+    
   const [movie, setMovie] = useState("");
   const [show, setShow] = useState(false);
 

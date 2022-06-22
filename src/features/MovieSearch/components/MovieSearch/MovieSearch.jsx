@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import axios from 'axios';
 
+
+const TextField = styled.input`
+  background: #ababab;
+  border: none;
+  border-radius: 2px;
+  padding: 10px;
+  color: white;
+  font-weight: bolder;
+
+` 
+
 const SubmitButton = styled.button`
   background-color: dodgerblue;
   border: none;
@@ -14,9 +25,10 @@ const SubmitButton = styled.button`
   }
 `
 
+
 const MovieSearch = ({ setMovie }) => {
   const [movieName, setMovieName] = useState("");
-  const apiKey = "bb5872cb";
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const getMoviesByName = async (name) => {
     const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${name}`;
@@ -38,7 +50,7 @@ const MovieSearch = ({ setMovie }) => {
   return (
     <div>
       <form>
-        <input
+        <TextField
           type="text"
           placeholder="Movie Name"
           value={movieName}

@@ -23,7 +23,7 @@ const Nav = styled.nav`
 
 const NavbarContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 80px;
   z-index: 1;
   width: 100%;
@@ -33,14 +33,18 @@ const NavbarContainer = styled.div`
 
 const NavLogo = styled(Link)`
   color: #fff;
-  justify-self: flex-start;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
-  margin-left: 24px;
+  justify-self: flex-start;
+  // margin-left: 24px;
   font-weight: bold;
   text-decoration: none;
+
+  // @media screen and (max-width: 768px) {
+  //   display: block
+  // }
 `;
 
 const MobileIcon = styled.div`
@@ -70,16 +74,18 @@ const NavMenu = styled.ul`
 `;
 
 const NavItem = styled.li`
-  height: 80px;
+  height: 70px;
 `;
 
 const NavLinks = styled(Link)`
-  color: #fff;
+  color: #F7F5FB;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
   display: flex;
   // justify-content: center;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
+  margin: 0 10rem;
   height: 100%;
   cursor: pointer;
 
@@ -89,12 +95,11 @@ const NavLinks = styled(Link)`
 `;
 // === Navbar Component === //
 
-function Navbar({toggle}) {
+function Navbar({ toggle }) {
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">Movie App</NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
@@ -102,6 +107,7 @@ function Navbar({toggle}) {
             <NavItem>
               <NavLinks to="/">Home</NavLinks>
             </NavItem>
+            <NavLogo to="/">Movie App</NavLogo>
             <NavItem>
               <NavLinks to="favorites">Favorites</NavLinks>
             </NavItem>

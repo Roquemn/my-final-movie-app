@@ -4,25 +4,40 @@ import axios from "axios";
 
 const SearchContainer = styled.div`
   display: flex;
-  justify-content: center;
+  place-content: center;
   gap: 2rem;
   margin-top: 5rem;
   z-index: 40;
+  
+
+  @media screen and (max-width: 820px) {
+    margin-top: 2rem;
+  }
 `;
 
 const TextField = styled.input`
+  background: transparent;
   border: none;
   border-bottom: 3px solid #ff7d00;
-  padding: 10px;
+  padding: .625rem 15rem;
   outline: none;
   color: #f7f5fb;
-  font-weight: bolder;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: .1em;
+
+  @media screen and (max-width: 820px) {
+    padding: .625rem 4.25rem;
+  }
 
   ::placeholder {
-    font-color: #f7f5fb;
+    color: #f7f5fb;
     text-align: center;
-    opacity: 0.3;
-    letter-spacing: 0.1em;
+    opacity: 0.6;
+    letter-spacing: .1em;
+    font-size: 1.2rem;
+    font-weight: 300;
   }
 `;
 
@@ -34,9 +49,14 @@ const SearchButton = styled.button`
   cursor: pointer;
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.1em;
-  padding: 0 2rem;
+  padding: 0 3rem;
+
+  @media screen and (max-width: 820px) {
+    padding: 0 1.5rem;
+    font-size: 1.2rem;
+  }
 
   &:hover {
     background-color: #f7f5fb;

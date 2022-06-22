@@ -6,13 +6,12 @@ import { FaBars } from "react-icons/fa";
 // === styles == //
 
 const Nav = styled.nav`
-  background: #000;
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  position: sticky;
   top: 0;
   z-index: 10;
 
@@ -32,19 +31,22 @@ const NavbarContainer = styled.div`
 `;
 
 const NavLogo = styled(Link)`
-  color: #fff;
+  color: #F7F5FB;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: .1em;
   display: flex;
   align-items: center;
   justify-self: flex-start;
-  // margin-left: 24px;
-  font-weight: bold;
   text-decoration: none;
+  text-transform: uppercase;
 
-  // @media screen and (max-width: 768px) {
-  //   display: block
-  // }
+  span {
+    color: #FF7D00;
+  }
+
+  
 `;
 
 const MobileIcon = styled.div`
@@ -58,7 +60,7 @@ const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #fff;
+    color: #FF7D00;
   }
 `;
 
@@ -79,18 +81,20 @@ const NavItem = styled.li`
 
 const NavLinks = styled(Link)`
   color: #F7F5FB;
-  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
   font-weight: 300;
+  letter-spacing: .1em;
   display: flex;
-  // justify-content: center;
   align-items: center;
   text-decoration: none;
   margin: 0 10rem;
+  padding: 0 2rem;
   height: 100%;
   cursor: pointer;
+  text-transform: uppercase;
 
   &:hover {
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid #FF7D00;
   }
 `;
 // === Navbar Component === //
@@ -107,7 +111,7 @@ function Navbar({ toggle }) {
             <NavItem>
               <NavLinks to="/">Home</NavLinks>
             </NavItem>
-            <NavLogo to="/">Movie App</NavLogo>
+            <NavLogo to="/">Movie <span>App</span></NavLogo>
             <NavItem>
               <NavLinks to="favorites">Favorites</NavLinks>
             </NavItem>

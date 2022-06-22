@@ -1,30 +1,48 @@
 import React, { useState } from "react";
-import styled from 'styled-components';
-import axios from 'axios';
+import styled from "styled-components";
+import axios from "axios";
 
+const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+  z-index: 40;
+`;
 
 const TextField = styled.input`
-  background: #ababab;
   border: none;
-  border-radius: 2px;
+  border-bottom: 3px solid #ff7d00;
   padding: 10px;
-  color: white;
+  outline: none;
+  color: #f7f5fb;
   font-weight: bolder;
 
-` 
+  ::placeholder {
+    font-color: #f7f5fb;
+    text-align: center;
+    opacity: 0.3;
+    letter-spacing: 0.1em;
+  }
+`;
 
-const SubmitButton = styled.button`
-  background-color: dodgerblue;
+const SearchButton = styled.button`
+  background-color: #ff7d00;
   border: none;
-  color: white;
-  padding: 10px;
-  border-radius: 12px;
+  border-radius: 5px;
+  color: #f7f5fb;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  padding: 0 2rem;
 
   &:hover {
-    background-color: #054cda;
+    background-color: #f7f5fb;
+    color: #252422;
   }
-`
-
+`;
 
 const MovieSearch = ({ setMovie }) => {
   const [movieName, setMovieName] = useState("");
@@ -42,23 +60,21 @@ const MovieSearch = ({ setMovie }) => {
     setMovie(response.data);
   };
 
-  const onSubmit = (e) => {
+  const onSearch = (e) => {
     e.preventDefault();
     getMoviesByName(movieName);
   };
-  
+
   return (
-    <div>
-      <form>
-        <TextField
-          type="text"
-          placeholder="Movie Name"
-          value={movieName}
-          onChange={(e) => setMovieName(e.currentTarget.value)}
-        />
-        <SubmitButton onClick={onSubmit}>Submit</SubmitButton>
-      </form>
-    </div>
+    <SearchContainer>
+      <TextField
+        type="text"
+        placeholder="Movie Name"
+        value={movieName}
+        onChange={(e) => setMovieName(e.currentTarget.value)}
+      />
+      <SearchButton onClick={onSearch}>Search</SearchButton>
+    </SearchContainer>
   );
 };
 

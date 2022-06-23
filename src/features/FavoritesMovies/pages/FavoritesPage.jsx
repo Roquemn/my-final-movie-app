@@ -1,58 +1,75 @@
 import { useMovies } from "../../Providers/MoviesProvider";
-import styled  from "styled-components";
+import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
-  min-height: 920px;
+  min-height: 100vh;
   background: transparent;
-  display: grid;
-  // justify-items: self-start;
   margin: auto;
-
-`
+`;
 
 const Heading = styled.h1`
-  padding: 5rem ;
-  display: flex;
-  flex-direction: row;
-  color: #FF7D00;
+  // display: flex;
+  color: #ff7d00;
   font-weight: 300;
   font-size: 2.5rem;
-  letter-spacing: .1em;
+  margin: 3rem 0;
+  padding-left: 2rem;
+  letter-spacing: 0.1em;
 
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     justify-content: center;
   }
-
-
-`
+`;
 
 const MovieGrid = styled.div`
   display: flex;
   place-content: center;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
-    padding:2rem;
+    padding: 2rem;
   }
-`
+`;
 
 const MovieCard = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 1rem;
+  background: rgba(32, 44, 57, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow:  3px  3px 10px #202C39;
 
   button {
     border: none;
     border-radius: 5px;
-    background-color: #FF7D00;
-    padding: .312em;
+    background-color: #ff7d00;
+    padding: 0.312em;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 400;
 
+    &:hover {
+      background-color: #dc3f2f;
+      cursor: pointer;
+    }
   }
 
-`
+  h2 {
+    color: #F7F5FB;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  span {
+    color: #F7F5FB;
+    font-weight: 300;
+    
+
+  }
+`;
 
 const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
@@ -61,20 +78,20 @@ const FavoritesPage = () => {
     <ContainerWrapper>
       <Heading>Favorites</Heading>
       <MovieGrid>
-      {movies.map((movie) => (
-        <MovieCard key={movie.Year}>
-          
-          <div>{movie.Poster}</div>
-          <h2>{movie.Title}</h2>
-          <span>{movie.Year}</span>
-          <span>{movie.Actors}</span>
-          <button onClick={() => removeMovie(movie.Title)}>Remove from favorites</button>
-        </MovieCard>
-      ))}
+        {movies.map((movie) => (
+          <MovieCard key={movie.Year}>
+            {/* <div>{movie.Poster}</div> */}
+            <h2>{movie.Title}</h2>
+            <span>{movie.Year}</span>
+            <span>{movie.Actors}</span>
+            <button onClick={() => removeMovie(movie.Title)}>
+              Remove from favorites
+            </button>
+          </MovieCard>
+        ))}
       </MovieGrid>
     </ContainerWrapper>
   );
 };
 
 export default FavoritesPage;
-

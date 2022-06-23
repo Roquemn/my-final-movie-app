@@ -89,7 +89,7 @@ const MovieSearch = ({ setMovie }) => {
     <SearchContainer>
       <TextField
         type="text"
-        placeholder="Movie Name"
+        placeholder="Search Movie Name"
         value={movieName}
         onChange={(e) => setMovieName(e.currentTarget.value)}
       />

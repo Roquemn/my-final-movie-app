@@ -26,7 +26,7 @@ const NavbarContainer = styled.div`
   height: 80px;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
+  // padding: 0 24px;
   max-width: 1100px;
 `;
 
@@ -48,6 +48,31 @@ const NavLogo = styled(Link)`
 
   
 `;
+
+const NavLogoMobile = styled(Link)`
+  display: none;
+  color: #F7F5FB;
+  cursor: pointer;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-items: center;
+
+  span {
+    color: #FF7D00;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    place-content: center;
+    margin-top: 1.4rem;
+  }
+
+
+
+`
 
 const MobileIcon = styled.div`
   display: none;
@@ -107,6 +132,7 @@ function Navbar({ toggle }) {
           <MobileIcon onClick={toggle}>
             <FaBars />
           </MobileIcon>
+          <NavLogoMobile to="/">Movie <span>App</span></NavLogoMobile>
           <NavMenu>
             <NavItem>
               <NavLinks to="/">Home</NavLinks>

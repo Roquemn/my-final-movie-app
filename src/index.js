@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import LandingPage from "./features/MovieSearch/pages/LandingPage";
 import { MoviesProvider } from "./features/Providers/MoviesProvider";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import FavoritesPage from "./features/FavoritesMovies/pages/FavoritesPage";
 import Home from "./features/MovieSearch/pages";
 import Footer from "./features/MovieSearch/components/Footer/Footer";
@@ -15,8 +15,9 @@ root.render(
       <Home />
       <MoviesProvider>
         <Switch>
-          <Route exact path="/" component={LandingPage} />
+          <Route path="/my-final-movie-app" component={LandingPage} />
           <Route path="/favorites" component={FavoritesPage} />
+          <Redirect to="/my-final-movie-app"/>
         </Switch>
       </MoviesProvider>
       <Footer/>

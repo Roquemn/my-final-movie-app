@@ -65,19 +65,21 @@ const Content = styled.section`
   }
 `;
 
+
 const MovieDetails = (
   { Title, Year, imdbID, Type, Poster, Plot, Actors },
-  favorites
-) => {
+  favorites) => {
   const { addMovie, movies } = useMovies();
 
   const addMovieWithCheck = (movie) => {
     if (movies.some((m) => m.Title === movie.Title)) {
       return;
     } else {
+      addMovie(movie);
     }
-    addMovie(movie);
   };
+  
+
 
   return (
     <Container>

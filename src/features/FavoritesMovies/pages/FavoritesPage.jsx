@@ -8,11 +8,13 @@ const ContainerWrapper = styled.div`
 `;
 
 const Heading = styled.h1`
-  // display: flex;
+  display: flex;
+  text-align: center;
+  border-bottom: 3px solid #ff7d00;
   color: #ff7d00;
   font-weight: 300;
   font-size: 2.5rem;
-  margin: 3rem 0;
+  margin: 3rem 5rem;
   padding-left: 2rem;
   letter-spacing: 0.1em;
 
@@ -71,8 +73,11 @@ const MovieCard = styled.div`
   }
 `;
 
+
+
 const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
+
 
   return (
     <ContainerWrapper>

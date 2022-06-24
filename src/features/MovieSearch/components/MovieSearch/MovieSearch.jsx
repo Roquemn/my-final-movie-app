@@ -74,16 +74,19 @@ const MovieSearch = ({ setMovie }) => {
     setMovie(response.data);
   };
 
-  const getMoviesById = async (id) => {
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`;
-    const response = await axios.get(url);
-    setMovie(response.data);
-  };
+  
+
+  // const getMoviesById = async (id) => {
+  //   const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`;
+  //   const response = await axios.get(url);
+  //   setMovie(response.data);
+  // };
 
   const onSearch = (e) => {
     e.preventDefault();
     getMoviesByName(movieName);
   };
+
 
   return (
     <SearchContainer>

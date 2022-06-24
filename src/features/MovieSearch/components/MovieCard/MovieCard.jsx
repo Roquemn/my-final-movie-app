@@ -1,10 +1,13 @@
 import React from "react";
 import MovieDetails from "../MovieDetails/MovieDetails";
-import "./styles.css";
 
-const MovieCard = ({ movieData, favorites }) => {
+
+
+const MovieCard = ({ movieData,  }) => {
   return (
     <div>
+      
+
       {movieData && (
         <MovieDetails
           Title={movieData.Title}
@@ -14,7 +17,6 @@ const MovieCard = ({ movieData, favorites }) => {
           Poster={movieData.Poster}
           Plot={movieData.Plot}
           Actors={movieData.Actors}
-          favorites
         />
       )}
     </div>

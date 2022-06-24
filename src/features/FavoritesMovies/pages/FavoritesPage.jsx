@@ -43,7 +43,7 @@ const MovieCard = styled.div`
   background: rgba(32, 44, 57, 0.5);
   padding: 1rem;
   border-radius: 5px;
-  box-shadow:  3px  3px 10px #202C39;
+  box-shadow: 3px 3px 10px #202c39;
 
   button {
     border: none;
@@ -60,24 +60,19 @@ const MovieCard = styled.div`
   }
 
   h2 {
-    color: #F7F5FB;
+    color: #f7f5fb;
     font-weight: 400;
     letter-spacing: 0.05em;
   }
 
   span {
-    color: #F7F5FB;
+    color: #f7f5fb;
     font-weight: 300;
-    
-
   }
 `;
 
-
-
-const FavoritesPage = () => {
+const FavoritesPage = (Poster, Title) => {
   const { movies, removeMovie } = useMovies();
-
 
   return (
     <ContainerWrapper>
@@ -85,7 +80,9 @@ const FavoritesPage = () => {
       <MovieGrid>
         {movies.map((movie) => (
           <MovieCard key={movie.Year}>
-            {/* <div>{movie.Poster}</div> */}
+
+            <div>{movie.Poster}</div>
+
             <h2>{movie.Title}</h2>
             <span>{movie.Year}</span>
             <span>{movie.Actors}</span>

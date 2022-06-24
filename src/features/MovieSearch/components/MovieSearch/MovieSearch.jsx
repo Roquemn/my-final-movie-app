@@ -68,6 +68,8 @@ const MovieSearch = ({ setMovie }) => {
   const [movieName, setMovieName] = useState("");
   const apiKey = process.env.REACT_APP_API_KEY;
 
+  //af87555 api key
+
   const getMoviesByName = async (name) => {
     const url = `http://www.omdbapi.com/?apikey=${apiKey}&t=${name}`;
     const response = await axios.get(url);
@@ -90,6 +92,7 @@ const MovieSearch = ({ setMovie }) => {
 
   return (
     <SearchContainer>
+      
       <TextField
         type="text"
         placeholder="Search Movie Name"

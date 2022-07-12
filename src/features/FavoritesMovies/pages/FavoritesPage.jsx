@@ -69,9 +69,10 @@ const MovieCard = styled.div`
     color: #f7f5fb;
     font-weight: 300;
   }
+
 `;
 
-const FavoritesPage = (Poster, Title) => {
+const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
 
   return (
@@ -79,9 +80,12 @@ const FavoritesPage = (Poster, Title) => {
       <Heading>Favorites</Heading>
       <MovieGrid>
         {movies.map((movie) => (
+          
           <MovieCard key={movie.Year}>
 
-            <div>{movie.Poster}</div>
+            {/* <div>{movie.Poster}</div> */}
+            
+
 
             <h2>{movie.Title}</h2>
             <span>{movie.Year}</span>
@@ -89,7 +93,9 @@ const FavoritesPage = (Poster, Title) => {
             <button onClick={() => removeMovie(movie.Title)}>
               Remove from favorites
             </button>
+            
           </MovieCard>
+          
         ))}
       </MovieGrid>
     </ContainerWrapper>

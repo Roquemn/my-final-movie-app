@@ -28,7 +28,7 @@ const TextField = styled.input`
   letter-spacing: .1em;
 
   @media screen and (max-width: 820px) {
-    padding: .625rem 4.25rem;
+    padding: .625rem 0;
   }
 
   ::placeholder {

@@ -69,16 +69,8 @@ const MovieCard = styled.div`
     color: #f7f5fb;
     font-weight: 300;
   }
-
- 
 `;
 
-const Poster = styled.div`
-  display: block;
-  width: 100%;
-  height: auto:
-  object-fit: cover;
-`;
 
 const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
@@ -89,9 +81,9 @@ const FavoritesPage = () => {
       <MovieGrid>
         {movies.map((movie) => (
           <MovieCard key={movie.Year}>
-            <Poster>
-              <img src={movie.Poster} alt={movie.Title} />
-            </Poster>
+            <img src={movie.Poster} alt={`${movie.Title} poster`} />
+
+            {/* <div>{movie.Poster}</div> */}
 
             <h2>{movie.Title}</h2>
             <span>{movie.Year}</span>

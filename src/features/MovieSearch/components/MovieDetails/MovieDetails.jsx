@@ -100,7 +100,7 @@ const MovieDetails = (
         <p>
           <span>Cast:</span> {Actors}
         </p>
-        <button onClick={() => addMovieWithCheck({ Title, Year, Actors })}>
+        <button onClick={() => addMovieWithCheck({ Title, Year, Actors, Poster })}>
           Add to favorites
         </button>
       </Content>

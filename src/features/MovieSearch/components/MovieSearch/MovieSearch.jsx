@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -67,11 +67,6 @@ const SearchButton = styled.button`
 const MovieSearch = ({ setMovie }) => {
   const [movieName, setMovieName] = useState("");
   const apiKey = "af87555"
-
-  useEffect (() => {
-    localStorage.setItem ('movies', JSON.stringify(movieName))
-  },[movieName]);
-
 
   //af87555 api key
 

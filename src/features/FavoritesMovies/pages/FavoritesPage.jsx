@@ -1,6 +1,6 @@
 import { useMovies } from "../../Providers/MoviesProvider";
 import styled from "styled-components";
-import React, {useEffect} from "react";
+import React from "react";
 
 const ContainerWrapper = styled.div`
   min-height: 100vh;
@@ -29,6 +29,7 @@ const MovieGrid = styled.div`
   place-content: center;
   flex-wrap: wrap;
   gap: 1.5rem;
+  margin: 1rem 0;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -70,18 +71,19 @@ const MovieCard = styled.div`
     color: #f7f5fb;
     font-weight: 300;
   }
+
+  img {
+    // max-width: 12rem;
+  }
 `;
 
 
 
 const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
+
   
-
-  useEffect (() => {
-    localStorage.setItem ('movies', JSON.stringify(movies))
-  },[movies]);
-
+  
   return (
     <ContainerWrapper>
       <Heading>Favorites</Heading>

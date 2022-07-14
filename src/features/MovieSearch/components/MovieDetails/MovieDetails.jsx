@@ -1,5 +1,4 @@
-import React from "react";
-import "./styles.css";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import { useMovies } from "../../../Providers/MoviesProvider";
 
@@ -78,6 +77,10 @@ const MovieDetails = (
       addMovie(movie);
     }
   };
+
+  useEffect (() => {
+    localStorage.setItem ('movies', JSON.stringify(movies))
+  },[movies]);
   
 
 

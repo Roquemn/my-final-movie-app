@@ -1,9 +1,17 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const MoviesContext = createContext();
 
 const MoviesProvider = ({ children }) => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([], () => {
+    const localData = localStorage.getItem('movies');
+    return localData ? JSON.parse(localData) : [];
+  });
+
+
+  useEffect (() => {
+    localStorage.setItem ('movies', JSON.stringify(movies));
+  }, [movies]);
 
   const addMovie = (movie) => {
     setMovies([...movies, movie]);

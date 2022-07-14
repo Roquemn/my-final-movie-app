@@ -1,6 +1,6 @@
 import { useMovies } from "../../Providers/MoviesProvider";
 import styled from "styled-components";
-import React, {useEffect} from "react";
+import React from "react";
 
 const ContainerWrapper = styled.div`
   min-height: 100vh;
@@ -73,14 +73,12 @@ const MovieCard = styled.div`
 `;
 
 
+
+
 const FavoritesPage = () => {
   const { movies, removeMovie } = useMovies();
 
-  
 
-  useEffect (() => {
-    localStorage.setItem ('movies', JSON.stringify(movies))
-  });
 
   return (
     <ContainerWrapper>
